@@ -1,6 +1,7 @@
 package spring.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,22 +28,26 @@ import javax.persistence.Table;
 @Table(name = "persona")
 public class Contacto implements Serializable {
 
-	private int idContacto;
+	private int idpersona;
 	private String nombre;
-	private Direccion direccion;
-	private Set<Telefono> telefono;
+	private String apellido1;
+	private String apellido2;
+	private String dni;
+	private Date fechanacimiento;
 
 	public Contacto() {
 
 	}
 
-	public Contacto(int idContacto, String nombre, Direccion direccion, Set<Telefono> telefono) {
+	public Contacto(int idpersona, String nombre, String apellido1, String apellido2, String dni,
+			Date fechanacimiento) {
 		super();
-		this.idContacto = idContacto;
+		this.idpersona = idpersona;
 		this.nombre = nombre;
-		this.direccion = direccion;
-		this.telefono = telefono;
-
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechanacimiento = fechanacimiento;
 	}
 
 	/**
@@ -54,13 +59,12 @@ public class Contacto implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = ("idpersona"))
-
-	public int getIdContacto() {
-		return idContacto;
+	public int getIdpersona() {
+		return idpersona;
 	}
 
-	public void setIdContacto(int idContacto) {
-		this.idContacto = idContacto;
+	public void setIdpersona(int idpersona) {
+		this.idpersona = idpersona;
 	}
 
 	public String getNombre() {
@@ -71,20 +75,36 @@ public class Contacto implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Direccion getDireccion() {
-		return direccion;
+	public String getApellido1() {
+		return apellido1;
 	}
 
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
 	}
 
-	public Set<Telefono> getTelefono() {
-		return telefono;
+	public String getApellido2() {
+		return apellido2;
 	}
 
-	public void setTelefono(Set<Telefono> telefono) {
-		this.telefono = telefono;
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public Date getFechanacimiento() {
+		return fechanacimiento;
+	}
+
+	public void setFechanacimiento(Date fechanacimiento) {
+		this.fechanacimiento = fechanacimiento;
 	}
 
 }
