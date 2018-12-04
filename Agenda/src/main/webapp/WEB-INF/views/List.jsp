@@ -13,11 +13,11 @@
 <body>
 
 
- <c:forEach var="contacto" items="${listaUsuario}" >
+ <c:forEach var="contacto" items="${listaContacto}" >
  
- <form action="new"  method="get"> 
+ <form action="detalle"  method="get"> 
 
-    <input type="submit" value="${contacto.nombre}" />
+    <input type="submit" value="${contacto.idContacto}" />
 		
 			</br>
 </form>

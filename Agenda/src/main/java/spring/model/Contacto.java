@@ -28,26 +28,26 @@ import javax.persistence.Table;
 @Table(name = "persona")
 public class Contacto implements Serializable {
 
-	private int idpersona;
+	private int idContacto;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private String dni;
-	private Date fechanacimiento;
+	private Date fechaNacimiento;
 
 	public Contacto() {
 
 	}
 
-	public Contacto(int idpersona, String nombre, String apellido1, String apellido2, String dni,
-			Date fechanacimiento) {
+	public Contacto(int idContacto, String nombre, String apellido1, String apellido2, String dni,
+			Date fechaNacimiento) {
 		super();
-		this.idpersona = idpersona;
+		this.idContacto = idContacto;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
 		this.dni = dni;
-		this.fechanacimiento = fechanacimiento;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	/**
@@ -58,13 +58,13 @@ public class Contacto implements Serializable {
 	 */
 	@Id
 	@GeneratedValue
-	@Column(name = ("idpersona"))
+	@Column(name = ("idContacto"))
 	public int getIdpersona() {
-		return idpersona;
+		return idContacto;
 	}
 
-	public void setIdpersona(int idpersona) {
-		this.idpersona = idpersona;
+	public void setIdpersona(int idContacto) {
+		this.idContacto = idContacto;
 	}
 
 	public String getNombre() {
@@ -100,11 +100,11 @@ public class Contacto implements Serializable {
 	}
 
 	public Date getFechanacimiento() {
-		return fechanacimiento;
+		return fechaNacimiento;
 	}
 
-	public void setFechanacimiento(Date fechanacimiento) {
-		this.fechanacimiento = fechanacimiento;
+	public void setFechanacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 }
