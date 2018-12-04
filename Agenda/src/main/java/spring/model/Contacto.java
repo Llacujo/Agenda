@@ -1,6 +1,7 @@
 package spring.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,20 +30,24 @@ public class Contacto implements Serializable {
 
 	private int idContacto;
 	private String nombre;
-	private Direccion direccion;
-	private Set<Telefono> telefono;
+	private String apellido1;
+	private String apellido2;
+	private String dni;
+	private Date fechaNacimiento;
 
 	public Contacto() {
 
 	}
 
-	public Contacto(int idContacto, String nombre, Direccion direccion, Set<Telefono> telefono) {
+	public Contacto(int idContacto, String nombre, String apellido1, String apellido2, String dni,
+			Date fechaNacimiento) {
 		super();
 		this.idContacto = idContacto;
 		this.nombre = nombre;
-		this.direccion = direccion;
-		this.telefono = telefono;
-
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	/**
@@ -53,13 +58,12 @@ public class Contacto implements Serializable {
 	 */
 	@Id
 	@GeneratedValue
-	@Column(name = ("idpersona"))
-
-	public int getIdContacto() {
+	@Column(name = ("idContacto"))
+	public int getIdpersona() {
 		return idContacto;
 	}
 
-	public void setIdContacto(int idContacto) {
+	public void setIdpersona(int idContacto) {
 		this.idContacto = idContacto;
 	}
 
@@ -71,20 +75,36 @@ public class Contacto implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Direccion getDireccion() {
-		return direccion;
+	public String getApellido1() {
+		return apellido1;
 	}
 
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
 	}
 
-	public Set<Telefono> getTelefono() {
-		return telefono;
+	public String getApellido2() {
+		return apellido2;
 	}
 
-	public void setTelefono(Set<Telefono> telefono) {
-		this.telefono = telefono;
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public Date getFechanacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechanacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 }
