@@ -1,5 +1,32 @@
 package spring.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import spring.services.Iservices;
+/**
+ * Clase AgendaController
+ *
+ * Contiene todos los metodos para controlar la vista y obtiene los datos
+ * a tarves de la capa service
+ *
+ * @author GrupoA
+ * @version 1.0
+ */
+@Controller
 public class AgendaController {
 
+	@Autowired
+	Iservices servicio;
+	
+	/**
+     * Devuelve una lista de entidades dada una entidad a traves de la capa services
+     * @param clase: Clase de una entidad
+     * @return List<Entidad>: devuelve una lista de una entidad
+     */
+	public <T> List<T> listar(Class< T > clazz){
+		servicio.setClazz(clazz);
+		return servicio.listar();
+	}
 }
