@@ -1,6 +1,7 @@
 package spring.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -49,6 +50,8 @@ public class Direccion implements Serializable{
 	@JoinColumn(name="idprovincia")
 	Provincia provincia;
 	
+	@JoinColumn(name="idpersona")
+	List<Contacto> contactos;
 	// --------------------
 	// Constructores
 	// --------------------
@@ -104,6 +107,13 @@ public class Direccion implements Serializable{
 
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
+	}
+	public List<Contacto> getContactos() {
+		return contactos;
+	}
+
+	public void setContactos(List<Contacto> contactos) {
+		this.contactos = contactos;
 	}
 
 
