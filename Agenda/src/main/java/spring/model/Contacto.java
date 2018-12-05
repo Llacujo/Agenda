@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.OneToMany;
 /**
@@ -38,7 +39,8 @@ public class Contacto implements Serializable {
 
 	@OneToMany(mappedBy="contacto")
 	private List<Telefono> telefonos;
-	
+	@OneToMany(mappedBy="contactos")
+	private Direccion direccion;
 	public Contacto() {
 
 	}
@@ -118,5 +120,13 @@ public class Contacto implements Serializable {
 	public void setFechanacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
+
 
 }
