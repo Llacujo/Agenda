@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.OneToMany;
 /**
  * Clase Contacto
  * 
@@ -35,6 +35,9 @@ public class Contacto implements Serializable {
 	private String dni;
 	private Date fechaNacimiento;
 
+	@OneToMany
+	private List<Telefono> telefonos;
+	
 	public Contacto() {
 
 	}
@@ -102,7 +105,15 @@ public class Contacto implements Serializable {
 	public Date getFechanacimiento() {
 		return fechaNacimiento;
 	}
+	
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
+	}
 
+	public List<Telefonos> getTelefonos() {
+		return telefonos;
+	}
+	
 	public void setFechanacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
