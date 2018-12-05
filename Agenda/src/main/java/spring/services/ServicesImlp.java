@@ -1,5 +1,7 @@
 package spring.services;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Service;
 
 /**
