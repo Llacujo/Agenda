@@ -2,9 +2,13 @@ package spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
@@ -31,22 +35,25 @@ public class Telefono implements Serializable{
 	// Atributos
 	// --------------------
 	/**
-	 * Identificador del número de teléfono
+	 * Identificador del nï¿½mero de telï¿½fono
 	 */
 	@Id
 	@GeneratedValue
 	@Column(name = "idtelefono")
 	int idTelefono;
 	/**
-	 * Número de teléfono
+	 * Nï¿½mero de telï¿½fono
 	 */
 	long numero;
 	
+	@ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="idpersona")
+	private Contacto contacto;
 	// --------------------
 	// Constructores
 	// --------------------
 	/**
-	 * Constructor vacío
+	 * Constructor vacï¿½o
 	 */
 	public Telefono() {
 	}
@@ -55,7 +62,7 @@ public class Telefono implements Serializable{
 	 * Constructor con 1 parametro
 	 * 
 	 * @param idTelefono
-	 *            identificador del número de teléfono
+	 *            identificador del nï¿½mero de telï¿½fono
 	 */
 	public Telefono(int idTelefono) {
 		this.idTelefono = idTelefono;
@@ -65,7 +72,7 @@ public class Telefono implements Serializable{
 	 * Constructor con 1 parametro
 	 * 
 	 * @param numero
-	 *            número de teléfono
+	 *            nï¿½mero de telï¿½fono
 	 */
 	public Telefono(long numero) {
 		this.numero = numero;

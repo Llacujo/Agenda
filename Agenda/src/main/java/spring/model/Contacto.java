@@ -2,6 +2,7 @@ package spring.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -110,7 +111,7 @@ public class Contacto implements Serializable {
 		this.telefonos = telefonos;
 	}
 
-	public List<Telefonos> getTelefonos() {
+	public List<Telefono> getTelefonos() {
 		return telefonos;
 	}
 	
