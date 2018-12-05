@@ -1,9 +1,14 @@
 package spring.services;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import spring.dao.IDAO;
+
 
 /**
  * Clase ServicesAbstract
@@ -20,6 +25,9 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	private static final Logger logger = LoggerFactory.getLogger(ServicesAbstract.class);
 	
 	private Class<T> clazz;
+	
+	@Autowired 
+	IDAO<T> dao;
 		
 	/**
 	 * Asigna una entidad al tipo generico
@@ -29,7 +37,15 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	public void setClazz(Class<T> clazzToSet) {
 		logger.debug("Asignamdo clase"+clazzToSet+"a Services");
 		this.clazz=clazzToSet;
+		dao.setClazz(clazzToSet);
 	}
+	
+	public List<T> listar(){
+		logger.warn("service: listar"+clazz.getName());
+		return dao.listar();
+	}
+	
+
 	
 	
 }
