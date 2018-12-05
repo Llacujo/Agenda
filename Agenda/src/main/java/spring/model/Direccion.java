@@ -2,9 +2,12 @@ package spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
@@ -29,19 +32,21 @@ public class Direccion implements Serializable{
 	// Atributos
 	// --------------------
 	/**
-	 * Identificador de la dirección
+	 * Identificador de la direcciï¿½n
 	 */
 	@Id
 	@GeneratedValue
 	@Column(name = "iddireccion")
 	int idDireccion;
 	/**
-	 * Dirección
+	 * Direcciï¿½n
 	 */
 	String direccionCompleta;
 	/**
 	 * Provincia
 	 */
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idprovincia")
 	Provincia provincia;
 	
 	// --------------------
