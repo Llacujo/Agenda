@@ -1,13 +1,16 @@
 package spring.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
+
 
 /**
  * Clase Provincia
@@ -38,6 +41,11 @@ public class Provincia implements Serializable{
 	 * Provincia
 	 */
 	String provincia;
+	/**
+	 * Direcciones
+	 */
+	@OneToMany(mappedBy="provincia")
+	private List<Direccion> direcciones;
 	
 	// --------------------
 	// Constructores
@@ -71,6 +79,16 @@ public class Provincia implements Serializable{
 
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
+	}
+	
+	
+
+	public List<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
 	}
 
 	// --------------------

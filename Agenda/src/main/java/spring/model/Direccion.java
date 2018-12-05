@@ -2,9 +2,12 @@ package spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.Id;
@@ -29,25 +32,23 @@ public class Direccion implements Serializable{
 	// Atributos
 	// --------------------
 	/**
-	 * Identificador de la dirección
+	 * Identificador de la direcciï¿½n
 	 */
 	@Id
 	@GeneratedValue
 	@Column(name = "iddireccion")
 	int idDireccion;
 	/**
-	 * Dirección
+	 * Direcciï¿½n
 	 */
-	String direccion;
+	String direccionCompleta;
 	/**
-	 * Código postal
-	 */	
-	int codPostal;
-	/**
-	 * Localidad
+	 * Provincia
 	 */
-	String localidad;
-
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idprovincia")
+	Provincia provincia;
+	
 	// --------------------
 	// Constructores
 	// --------------------
@@ -58,18 +59,30 @@ public class Direccion implements Serializable{
 		
 	}
 
-	public Direccion(int idDireccion, String direccion, int codPostal, String localidad) {
-		super();
+	public Direccion(int idDireccion) {
 		this.idDireccion = idDireccion;
-		this.direccion = direccion;
-		this.codPostal = codPostal;
-		this.localidad = localidad;
+	}
+	
+	public Direccion(String direccion) {
+		this.direccionCompleta = direccion;
+	}
+	
+	public Direccion(int idDireccion, String direccion) {
+		this.idDireccion = idDireccion;
+		this.direccionCompleta = direccion;
+	}
+	
+
+	public Direccion(int idDireccion, String direccionCompleta, Provincia provincia) {
+		this.idDireccion = idDireccion;
+		this.direccionCompleta = direccionCompleta;
+		this.provincia = provincia;
 	}
 
 	// --------------------
 	// Getters y setters
 	// --------------------
-	public int getIdDireccion() {
+		public int getIdDireccion() {
 		return idDireccion;
 	}
 
@@ -77,37 +90,30 @@ public class Direccion implements Serializable{
 		this.idDireccion = idDireccion;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getDireccionCompleta() {
+		return direccionCompleta;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setDireccionCompleta(String direccionCompleta) {
+		this.direccionCompleta = direccionCompleta;
 	}
 
-	public int getCodPostal() {
-		return codPostal;
+	public Provincia getProvincia() {
+		return provincia;
 	}
 
-	public void setCodPostal(int codPostal) {
-		this.codPostal = codPostal;
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
-	public String getLocalidad() {
-		return localidad;
-	}
-
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
-	}
 
 	// --------------------
 	// To String
 	// --------------------
 	@Override
 	public String toString() {
-		return "Direccion [idDireccion=" + idDireccion + ", direccion=" + direccion + ", codPostal=" + codPostal
-				+ ", localidad=" + localidad + "]";
+		return "Direccion [idDireccion=" + idDireccion + ", direccionCompleta=" + direccionCompleta + ", provincia="
+				+ provincia + "]";
 	}
 
 
@@ -117,7 +123,3 @@ public class Direccion implements Serializable{
 	
 
 }
-
-
-
-	
