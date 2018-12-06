@@ -46,4 +46,13 @@ public abstract class DAOAbstract<T extends Serializable> {
 		return entityManager.createQuery("from " + clazz.getName()).getResultList();
 	}
 
+	/**
+	 * Obtiene una entidad mediante su id
+	 * 
+	 * @param  Id en formato int
+	 * @return Objeto entidad
+	 */
+	public T detallar( int id ){
+	      return entityManager.find( clazz, id );
+	   }
 }
