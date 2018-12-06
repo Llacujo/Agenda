@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import spring.controller.AgendaController;
+import spring.model.Contacto;
 /**
  * Clase AgendaControllerListTest
  *
@@ -32,7 +33,7 @@ public class AgendaControllerListTest {
 	@Test
 	public void devuelveLista() {
 		 
-		assertThat(control.list(Contacto.class)).isList();
+		assertThat(control.listar(Contacto.class)).asList();
 		
 	}
 }

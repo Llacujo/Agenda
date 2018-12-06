@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import spring.model.Contacto;
 import spring.services.IServices;
-import spring.services.Iservices;
 /**
  * Clase AgendaController
  *

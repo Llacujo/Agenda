@@ -38,20 +38,25 @@ public class Direccion implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name = "iddireccion")
-	int idDireccion;
+	private int idDireccion;
 	/**
 	 * Direcci�n
 	 */
-	String direccionCompleta;
+	
+	private String direccion;
 	/**
 	 * Provincia
 	 */
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idprovincia")
-	Provincia provincia;
+	private Provincia provincia;
 	
 	@JoinColumn(name="idpersona")
-	List<Contacto> contactos;
+	private List<Contacto> contactos;
+	
+	private int codpostal;
+	
+	private String localidad;
 	// --------------------
 	// Constructores
 	// --------------------
@@ -67,18 +72,18 @@ public class Direccion implements Serializable{
 	}
 	
 	public Direccion(String direccion) {
-		this.direccionCompleta = direccion;
+		this.direccion = direccion;
 	}
 	
 	public Direccion(int idDireccion, String direccion) {
 		this.idDireccion = idDireccion;
-		this.direccionCompleta = direccion;
+		this.direccion = direccion;
 	}
 	
 
-	public Direccion(int idDireccion, String direccionCompleta, Provincia provincia) {
+	public Direccion(int idDireccion, String direccion, Provincia provincia) {
 		this.idDireccion = idDireccion;
-		this.direccionCompleta = direccionCompleta;
+		this.direccion = direccion;
 		this.provincia = provincia;
 	}
 
@@ -93,14 +98,7 @@ public class Direccion implements Serializable{
 		this.idDireccion = idDireccion;
 	}
 
-	public String getDireccionCompleta() {
-		return direccionCompleta;
-	}
-
-	public void setDireccionCompleta(String direccionCompleta) {
-		this.direccionCompleta = direccionCompleta;
-	}
-
+	
 	public Provincia getProvincia() {
 		return provincia;
 	}
@@ -117,12 +115,37 @@ public class Direccion implements Serializable{
 	}
 
 
+	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public int getCodpostal() {
+		return codpostal;
+	}
+
+	public void setCodpostal(int codpostal) {
+		this.codpostal = codpostal;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
 	// --------------------
 	// To String
 	// --------------------
 	@Override
 	public String toString() {
-		return "Direccion [idDireccion=" + idDireccion + ", direccionCompleta=" + direccionCompleta + ", provincia="
+		return "Direccion [idDireccion=" + idDireccion + ", direccion=" + direccion + ", provincia="
 				+ provincia + "]";
 	}
 
