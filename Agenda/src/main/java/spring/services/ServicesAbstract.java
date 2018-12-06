@@ -55,8 +55,9 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	 * @param  Id en formato int
 	 * @return Objeto entidad
 	 */
-	public T detallar( int id ){
-	      return dao.detallar( id );
+	public T detallar(Class<T> clazz, int id ){
+	    setClazz(clazz);
+		return dao.detallar( id );
 	   }
 	
 	

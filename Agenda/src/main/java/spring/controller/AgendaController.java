@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import spring.services.IServices;
 import spring.services.Iservices;
 /**
  * Clase AgendaController
@@ -18,8 +24,19 @@ import spring.services.Iservices;
 public class AgendaController {
 
 	@Autowired
-	Iservices servicio;
+	IServices servicio;
 	
+	/**
+     * Obtiene los datos de una entidad y carga la pagina de detalle
+     * con ellos.
+     * @param Id: Id de la entidad
+     * @return pagina a cargar
+     */
+	@RequestMapping(value="/detalle", method=RequestMethod.GET)
+	public String detallar(@RequestParam("id") int id,ModelMap model) {
+		model.addAttribute("contacto", servicio.detallar(Contacto.class, id));
+		return "detalle";
+	}
 	/**
      * Devuelve una lista de entidades dada una entidad a traves de la capa services
      * @param clase: Clase de una entidad

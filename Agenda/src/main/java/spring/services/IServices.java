@@ -9,6 +9,6 @@ public interface IServices <T extends Serializable>{
 	
 	List<T> listar();
 	
-	public T detallar( int id );
+	public T detallar(Class<T> clazz, int id );
 
 }
