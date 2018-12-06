@@ -7,11 +7,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+
 
 /**
  * Clase Direccion
@@ -51,7 +53,8 @@ public class Direccion implements Serializable{
 	@JoinColumn(name="idprovincia")
 	private Provincia provincia;
 	
-	@JoinColumn(name="idpersona")
+	@OneToMany(mappedBy="direccion", cascade=CascadeType.ALL)
+	
 	private List<Contacto> contactos;
 	
 	private int codpostal;
