@@ -40,12 +40,24 @@ public abstract class ServicesAbstract<T extends Serializable> {
 		dao.setClazz(clazzToSet);
 	}
 	
+	/**
+	 * Obtiene una lista de entidades a traves del DAO
+	 * 
+	 * @return List<Entidad>: Lista de entidades
+	 */
 	public List<T> listar(){
 		logger.warn("service: listar"+clazz.getName());
 		return dao.listar();
 	}
-	
-
+	/**
+	 * Obtiene del DAO una entidad mediante su id
+	 * 
+	 * @param  Id en formato int
+	 * @return Objeto entidad
+	 */
+	public T detallar( int id ){
+	      return dao.detallar( id );
+	   }
 	
 	
 }
