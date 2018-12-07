@@ -16,5 +16,7 @@ public interface IDAO<T extends Serializable> {
 
 	public List<T> listar();
 	
+	public void anadir(T entity);
+	
 	public T detallar( int id );
 }

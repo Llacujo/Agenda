@@ -9,6 +9,8 @@ public interface IServices <T extends Serializable>{
 	
 	List<T> listar();
 	
+	public void anadir(T entity);
+	
 	public T detallar(Class<T> clazz, int id );
 
 }

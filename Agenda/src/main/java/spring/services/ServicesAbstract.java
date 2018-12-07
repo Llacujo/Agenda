@@ -49,6 +49,19 @@ public abstract class ServicesAbstract<T extends Serializable> {
 		logger.warn("service: listar"+clazz.getName());
 		return dao.listar();
 	}
+	
+	
+	/**
+	 * Añade al DAO una nueva entidad
+	 * 
+	 * @param entity
+	 */
+	public void anadir(T entity) {
+		logger.info("Añadiendo nuevo contacto");
+		dao.anadir(entity);
+	}
+
+	
 	/**
 	 * Obtiene del DAO una entidad mediante su id
 	 * 

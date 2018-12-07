@@ -47,6 +47,16 @@ public abstract class DAOAbstract<T extends Serializable> {
 	}
 
 	/**
+	 * Añade una nueva entidad
+	 * 
+	 * @param entity
+	 */
+	public void anadir(T entity) {
+		entityManager.persist(entity);
+	}
+	
+	
+	/**
 	 * Obtiene una entidad mediante su id
 	 * 
 	 * @param  Id en formato int
