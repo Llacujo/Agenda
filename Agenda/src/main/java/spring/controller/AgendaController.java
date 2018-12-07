@@ -4,7 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import spring.services.Iservices;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.model.Contacto;
+import spring.services.IServices;
 /**
  * Clase AgendaController
  *
@@ -18,8 +25,19 @@ import spring.services.Iservices;
 public class AgendaController {
 
 	@Autowired
-	Iservices servicio;
+	IServices servicio;
 	
+	/**
+     * Obtiene los datos de una entidad y carga la pagina de detalle
+     * con ellos.
+     * @param Id: Id de la entidad
+     * @return pagina a cargar
+     */
+	@RequestMapping(value="/detalle", method=RequestMethod.GET)
+	public String detallar(@RequestParam("id") int id,ModelMap model) {
+		model.addAttribute("contacto", servicio.detallar(Contacto.class, id));
+		return "detalle";
+	}
 	/**
      * Devuelve una lista de entidades dada una entidad a traves de la capa services
      * @param clase: Clase de una entidad
@@ -29,4 +47,23 @@ public class AgendaController {
 		servicio.setClazz(clazz);
 		return servicio.listar();
 	}
+	
+	
+	/**
+	 * Crea un nuevo contacto a partir de los datos introducidos en la página Anadir
+	 * 
+	 * @return model
+	 */
+	@RequestMapping (value = "/anadir", method = RequestMethod.GET)
+	public ModelAndView anadir () {
+		ModelAndView model = new ModelAndView("Anadir"); 
+		model.addObject("contacto", new Contacto());
+		return model;
+	}
+	
+	
+	
+	
+	
+	
 }
