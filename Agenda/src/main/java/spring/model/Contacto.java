@@ -68,11 +68,13 @@ public class Contacto implements Serializable {
 	}
 
 	
-	public int getIdpersona() {
+
+
+	public int getIdContacto() {
 		return idContacto;
 	}
 
-	public void setIdpersona(int idContacto) {
+	public void setIdContacto(int idContacto) {
 		this.idContacto = idContacto;
 	}
 
@@ -108,9 +110,7 @@ public class Contacto implements Serializable {
 		this.dni = dni;
 	}
 
-	public Date getFechanacimiento() {
-		return fechaNacimiento;
-	}
+
 	
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
@@ -120,9 +120,15 @@ public class Contacto implements Serializable {
 		return telefonos;
 	}
 	
-	public void setFechanacimiento(Date fechaNacimiento) {
+	
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
 	public Direccion getDireccion() {
 		return direccion;
 	}
