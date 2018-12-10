@@ -26,5 +26,12 @@ public class RestAgendaController {
 	public Contacto detallar(@RequestParam("id") int id) {
 		return	 (Contacto) servicio.detallar(Contacto.class, id);
 	}
+	/**
+	 * Crea un nuevo contacto
+	 */
+	@RequestMapping(value="/anadirR", method=RequestMethod.GET)
+	public void anadir() {
+		servicio.anadir(new Contacto());
+	}
 	
 }

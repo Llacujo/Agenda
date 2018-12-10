@@ -3,6 +3,7 @@ package spring.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
@@ -75,6 +76,7 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 * @return entidad
 	 */
 	public void editar(T entity) {
+		
 		entityManager.merge(entity);
 	}
 	

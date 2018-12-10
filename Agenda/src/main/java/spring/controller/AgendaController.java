@@ -88,6 +88,7 @@ public class AgendaController {
 	 */
 	@RequestMapping(value="/edit", method=RequestMethod.POST)
 	public String edit(@ModelAttribute("contacto") Contacto contacto) {
+		
 		servicio.editar(contacto);
 		return "list2";
 	}
