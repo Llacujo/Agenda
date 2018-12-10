@@ -43,6 +43,7 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 */
 	public List<T> listar() {
 		logger.warn("dao listar");
+		
 		return entityManager.createQuery("from " + clazz.getName()).getResultList();
 	}
 
@@ -65,4 +66,14 @@ public abstract class DAOAbstract<T extends Serializable> {
 	public T detallar( int id ){
 	      return entityManager.find( clazz, id );
 	   }
+	
+	/**
+	 * Actualiza la base de datos con los datos introducidos
+	 * 
+	 * @param entity
+	 * @return entidad
+	 */
+	public void editar(T entity) {
+		entityManager.merge(entity);
+	}
 }

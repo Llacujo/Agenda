@@ -45,8 +45,9 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	 * 
 	 * @return List<Entidad>: Lista de entidades
 	 */
-	public List<T> listar(){
+	public List<T> listar(Class<T> clazz){
 		logger.warn("service: listar"+clazz.getName());
+		setClazz(clazz);
 		return dao.listar();
 	}
 	
@@ -72,6 +73,16 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	    setClazz(clazz);
 		return dao.detallar( id );
 	   }
+	
+	/**
+	 * Llama al metodo editar de la clase DAOImpl, pasandole una entidad
+	 * @param entity
+	 * @return
+	 */
+	public void editar(T entity) {
+		
+		 dao.editar(entity);
+	}
 	
 	
 }

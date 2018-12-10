@@ -19,4 +19,6 @@ public interface IDAO<T extends Serializable> {
 	public void anadir(T entity);
 	
 	public T detallar( int id );
+	
+	public void editar(T entity);
 }
