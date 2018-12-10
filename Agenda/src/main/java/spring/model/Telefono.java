@@ -7,11 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+
 
 
 /**
@@ -44,6 +45,7 @@ public class Telefono implements Serializable{
 	/**
 	 * N�mero de tel�fono
 	 */
+	@Column(name = "telefono")
 	long numero;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)

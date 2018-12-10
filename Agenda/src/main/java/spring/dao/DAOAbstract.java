@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Clase DAOAbstract
@@ -43,7 +44,57 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 */
 	public List<T> listar() {
 		logger.warn("dao listar");
+		
 		return entityManager.createQuery("from " + clazz.getName()).getResultList();
 	}
 
+	/**
+	 * Añade una nueva entidad
+	 * 
+	 * @param entity
+	 */
+	public void anadir(T entity) {
+		entityManager.persist(entity);
+	}
+	
+	
+	/**
+	 * Obtiene una entidad mediante su id
+	 * 
+	 * @param  Id en formato int
+	 * @return Objeto entidad
+	 */
+	public T detallar( int id ){
+	      return entityManager.find( clazz, id );
+	   }
+	
+	/**
+	 * Actualiza la base de datos con los datos introducidos
+	 * 
+	 * @param entity
+	 * @return entidad
+	 */
+	public void editar(T entity) {
+		entityManager.merge(entity);
+	}
+	
+	/**
+	 * Crea una Entidad a partir de su id y la envia al metodo Borrar
+	 * 
+	 * @param entity
+	 */
+	@Transactional
+	 public void borrar( int id ){
+	      T entity = detallar( id );
+	      borrar( entity );
+	   }
+	
+	/**
+	 * Borra una Entidad a partir de su id y la envia al metodo Borrar
+	 * @param entity
+	 */
+	@Transactional
+	 public void borrar( T entity ){
+	      entityManager.remove( entity );
+	   }
 }

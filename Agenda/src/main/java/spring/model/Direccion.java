@@ -1,13 +1,19 @@
 package spring.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+
 
 /**
  * Clase Direccion
@@ -29,25 +35,31 @@ public class Direccion implements Serializable{
 	// Atributos
 	// --------------------
 	/**
-	 * Identificador de la dirección
+	 * Identificador de la direcciï¿½n
 	 */
 	@Id
 	@GeneratedValue
 	@Column(name = "iddireccion")
-	int idDireccion;
+	private int idDireccion;
 	/**
-	 * Dirección
+	 * Direcciï¿½n
 	 */
-	String direccion;
+	
+	private String direccion;
 	/**
-	 * Código postal
-	 */	
-	int codPostal;
-	/**
-	 * Localidad
+	 * Provincia
 	 */
-	String localidad;
-
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idprovincia")
+	private Provincia provincia;
+	
+	@OneToMany(mappedBy="direccion", cascade=CascadeType.ALL)
+	
+	private List<Contacto> contactos;
+	
+	private int codpostal;
+	
+	private String localidad;
 	// --------------------
 	// Constructores
 	// --------------------
@@ -58,18 +70,30 @@ public class Direccion implements Serializable{
 		
 	}
 
-	public Direccion(int idDireccion, String direccion, int codPostal, String localidad) {
-		super();
+	public Direccion(int idDireccion) {
+		this.idDireccion = idDireccion;
+	}
+	
+	public Direccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
+	public Direccion(int idDireccion, String direccion) {
 		this.idDireccion = idDireccion;
 		this.direccion = direccion;
-		this.codPostal = codPostal;
-		this.localidad = localidad;
+	}
+	
+
+	public Direccion(int idDireccion, String direccion, Provincia provincia) {
+		this.idDireccion = idDireccion;
+		this.direccion = direccion;
+		this.provincia = provincia;
 	}
 
 	// --------------------
 	// Getters y setters
 	// --------------------
-	public int getIdDireccion() {
+		public int getIdDireccion() {
 		return idDireccion;
 	}
 
@@ -77,6 +101,24 @@ public class Direccion implements Serializable{
 		this.idDireccion = idDireccion;
 	}
 
+	
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+	public List<Contacto> getContactos() {
+		return contactos;
+	}
+
+	public void setContactos(List<Contacto> contactos) {
+		this.contactos = contactos;
+	}
+
+
+	
 	public String getDireccion() {
 		return direccion;
 	}
@@ -85,12 +127,12 @@ public class Direccion implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public int getCodPostal() {
-		return codPostal;
+	public int getCodpostal() {
+		return codpostal;
 	}
 
-	public void setCodPostal(int codPostal) {
-		this.codPostal = codPostal;
+	public void setCodpostal(int codpostal) {
+		this.codpostal = codpostal;
 	}
 
 	public String getLocalidad() {
@@ -106,8 +148,8 @@ public class Direccion implements Serializable{
 	// --------------------
 	@Override
 	public String toString() {
-		return "Direccion [idDireccion=" + idDireccion + ", direccion=" + direccion + ", codPostal=" + codPostal
-				+ ", localidad=" + localidad + "]";
+		return "Direccion [idDireccion=" + idDireccion + ", direccion=" + direccion + ", provincia="
+				+ provincia + "]";
 	}
 
 
@@ -117,7 +159,3 @@ public class Direccion implements Serializable{
 	
 
 }
-
-
-
-	

@@ -19,7 +19,7 @@
 
     <input type="submit" value="${contacto.idContacto}" />
 		
-			</br>
+			
 </form>
 		</c:forEach>
 

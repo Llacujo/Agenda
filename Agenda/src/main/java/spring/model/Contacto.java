@@ -1,13 +1,15 @@
 package spring.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.OneToMany;
 /**
@@ -28,17 +30,28 @@ import javax.persistence.OneToMany;
 @Entity
 @Table(name = "persona")
 public class Contacto implements Serializable {
-
+	/**
+	 * @Id Indica que es la PK de la tabla.
+	 * @GeneratedValue hace que Hibernate asigne el id de la entidad
+	 *                 automaticamente.
+	 * @Column indical el nombre de la columna en la Base de Datos
+	 */
+	@Id
+	@GeneratedValue
+	@Column(name = ("idpersona"))
 	private int idContacto;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private String dni;
+	@Column(name="fechanacimiento")
 	private Date fechaNacimiento;
 
 	@OneToMany(mappedBy="contacto")
 	private List<Telefono> telefonos;
-	
+	@ManyToOne
+	@JoinColumn(name="iddireccion")
+	private Direccion direccion;
 	public Contacto() {
 
 	}
@@ -54,20 +67,14 @@ public class Contacto implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	/**
-	 * @Id Indica que es la PK de la tabla.
-	 * @GeneratedValue hace que Hibernate asigne el id de la entidad
-	 *                 automaticamente.
-	 * @Column indical el nombre de la columna en la Base de Datos
-	 */
-	@Id
-	@GeneratedValue
-	@Column(name = ("idContacto"))
-	public int getIdpersona() {
+	
+
+
+	public int getIdContacto() {
 		return idContacto;
 	}
 
-	public void setIdpersona(int idContacto) {
+	public void setIdContacto(int idContacto) {
 		this.idContacto = idContacto;
 	}
 
@@ -103,9 +110,7 @@ public class Contacto implements Serializable {
 		this.dni = dni;
 	}
 
-	public Date getFechanacimiento() {
-		return fechaNacimiento;
-	}
+
 	
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
@@ -115,8 +120,22 @@ public class Contacto implements Serializable {
 		return telefonos;
 	}
 	
-	public void setFechanacimiento(Date fechaNacimiento) {
+	
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
+	public Direccion getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
+
 
 }
