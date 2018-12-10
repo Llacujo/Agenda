@@ -38,7 +38,7 @@ public class RestAgendaController {
 	 * Devuelve una lista de todos los contactos 
 	 * @return List de contactos
 	 */
-	@RequestMapping("/R")
+	@RequestMapping(value = "/R")
 	public List<Contacto> listarR(){
 		return servicio.listar(Contacto.class);
 	}
