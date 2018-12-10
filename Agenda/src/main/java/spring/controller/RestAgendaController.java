@@ -1,13 +1,18 @@
 package spring.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import spring.model.Contacto;
 import spring.services.IServices;
@@ -28,10 +33,26 @@ public class RestAgendaController {
 	}
 	/**
 	 * Crea un nuevo contacto
+	 * @param Contacto.class
+	 * @return ResponseEntity
 	 */
-	@RequestMapping(value="/anadirR", method=RequestMethod.GET)
-	public void anadir() {
-		servicio.anadir(new Contacto());
+	@PostMapping
+	ResponseEntity<?> anadir(@RequestBody Contacto contacto){
+		this.servicio.anadir(contacto);
+		URI location=ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/anadirR")
+				.buildAndExpand(contacto.getIdContacto())
+				.toUri();
+		return ResponseEntity.created(location).build();
+		/*
+		 * EL objeto java.net.URI se construye capturando la URI de la
+		 * peticion entrante y añadiendo la direccion /anadir.
+		 * buildAndExpand(contacto.getIdContacto()) inserta el id del contacto
+		 * en la plantilla.
+		 * El resultado es una URI
+		 */
+
 	}
 
 	/**
