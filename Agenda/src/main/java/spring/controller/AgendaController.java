@@ -84,13 +84,13 @@ public class AgendaController {
 	 * Es el servlet encargado de editar el contacto introducido antes.
 	 * Viene de la pagina de editar y nos reenvia a la lista de contactos
 	 * @param contacto
-	 * @return
+	 * @return String
 	 */
-	@RequestMapping(value="/edit", method=RequestMethod.POST)
+	@RequestMapping(value="/edition", method=RequestMethod.POST)
 	public String edit(@ModelAttribute("contacto") Contacto contacto) {
 		
 		servicio.editar(contacto);
-		return "list2";
+		return "redirect:/";
 	}
 	
 	/**

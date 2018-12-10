@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html"  pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/resources/css/anadir.css">
+    <link rel="stylesheet" type="text/css" href="webapp/META-INF/resources/css/anadir.css">
 
 <title>Editar</title>
 </head>
 <body>
 	<div class="container">
 
-        <mvc:form modelAttribute="contacto" id="edit" action="/edit" method="post">
+        <mvc:form modelAttribute="contacto" id="edit" action="/edition" method="post">
             <h3>EDITAR</h3>
             <p><br></p>
             <fieldset>

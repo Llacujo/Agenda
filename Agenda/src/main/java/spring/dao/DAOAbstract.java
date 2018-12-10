@@ -75,6 +75,7 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 * @param entity
 	 * @return entidad
 	 */
+	@Transactional
 	public void editar(T entity) {
 		
 		entityManager.merge(entity);
