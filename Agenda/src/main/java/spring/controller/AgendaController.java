@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,7 +60,7 @@ public class AgendaController {
 	  * Primera página de la agenda. Es una lista con el nombre de todos los contactos
 	  * @return String
 	  */
-	@RequestMapping(value="/list2" ,method=RequestMethod.GET)
+	@RequestMapping(value="/" ,method=RequestMethod.GET)
 	public String iniciarList(Model model) {
 		System.out.println(servicio.listar(Contacto.class));
 		model.addAttribute("listaContacto",servicio.listar(Contacto.class));
@@ -91,7 +92,17 @@ public class AgendaController {
 		return "list2";
 	}
 	
-	
+	/**
+	 * Borra un Contacto dado su ID y redirecciona a la lista de Contactos
+	 * 
+	 * @return model list2
+	 */
+	@GetMapping("/borrar")
+	public ModelAndView deleteUser(@RequestParam("id") int id) {
+		
+		servicio.borrar(id);
+		return new ModelAndView("redirect:/");		
+	}
 	
 	
 	

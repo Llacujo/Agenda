@@ -14,7 +14,7 @@
 <body>
     <div class="container">
 
-        <form id="contact" action="" method="post">
+        <form id="contact" action="anadir" method="get">
             <h3>DETALLE</h3>
             <p><br></p>
             <fieldset>
@@ -53,7 +53,7 @@
             </fieldset>
             <fieldset>
                 <button name="editar" type="submit" id="contact-edit" data-submit="...Loading">EDITAR</button>
-                <button name="borrar" type="submit" id="contact-delete" data-submit="...Deleting">ELIMINAR</button>
+                <a href="borrar?id=${contacto.idContacto}" id="contact-delete">ELIMINAR</a>
             </fieldset>
         </form>
 

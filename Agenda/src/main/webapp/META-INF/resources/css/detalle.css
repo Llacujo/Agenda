@@ -24,12 +24,12 @@ body {
 
 .container {
 	max-width:400px;
-	width:100%;
+	width:300%;
 	margin:0 auto;
 	position:relative;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"], #contact a { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 #contact {
 	background:#F9F9F9;
@@ -42,6 +42,7 @@ body {
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
+	text-align: center;
 }
 
 
@@ -71,6 +72,27 @@ fieldset {
 	height:100px;
 	max-width:100%;
   resize:none;
+}
+
+#contact a {
+	cursor:pointer;
+    border:none;
+    display:block;
+    text-align: center;;
+    width:100%;
+	background:#FF1A1A;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+	text-decoration:none; 
+}
+
+#contact a:hover {
+	background:#B30000;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
 }
 
 #contact button[type="submit"] {

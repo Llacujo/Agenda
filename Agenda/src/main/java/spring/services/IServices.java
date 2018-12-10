@@ -14,4 +14,6 @@ public interface IServices <T extends Serializable>{
 	public T detallar(Class<T> clazz, int id );
 	
 	public void editar(T entity);
+	
+	public void borrar( int id );
 }

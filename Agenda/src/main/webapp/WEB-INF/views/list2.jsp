@@ -45,28 +45,24 @@
 		</section>
 		
 	<!-- Sección: Tabla de contactos -->
-	 <section id="tabla" class="tabla-seccion text-center">	
-		<table border="0">
+	  <section id="tabla" class="tabla-seccion text-center">	
+		<table border="1">
 				
 				<tr>
 					<th>Lista de contactos</th>
 				</tr> 
-				<!--  
+				
 				<c:forEach var="contacto" items="${listaContacto}" varStatus="status">
 					<tr>
-						<td>$${contacto.idContacto}</td>					
-						<td><a href="edit?id=${contacto.idContacto}">${contacto.nombre}</a></td>
-					</tr>
-				</c:forEach> -->
+					<td>${contacto.nombre}</td>
+					<td>${contacto.apellido1}</td>
+					<td>${contacto.apellido2}</td>
+					<td><a href="detalle?id=${contacto.idContacto}">EDITAR</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="borrar?id=${contacto.idContacto}">Eliminar</a>
+					</td>
+				</tr>
+				</c:forEach> 
 			
- 					<c:forEach var="contacto" items="${listaContacto}" >
- 						<tr>
- 							<form action="detalle"  method="get"> 
-    				    <!--<input type="submit" value="${contacto.idContacto}" />	--> 
-    								
-							</form>
-						</tr>
-					</c:forEach>
 		</table>			
 	 </section>
 	

@@ -21,4 +21,6 @@ public interface IDAO<T extends Serializable> {
 	public T detallar( int id );
 	
 	public void editar(T entity);
+	
+	public void borrar(int id);
 }

@@ -85,4 +85,14 @@ public abstract class ServicesAbstract<T extends Serializable> {
 	}
 	
 	
+	/**
+	 * Llama al DAO para borrar una entidad dado su ID
+	 * 
+	 * @param entity
+	 */
+	public void borrar( int id ){
+		logger.info("Borrar Contacto");
+	      dao.borrar( id );
+	   }
+	
 }
