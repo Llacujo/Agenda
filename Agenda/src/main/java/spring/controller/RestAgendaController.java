@@ -33,5 +33,15 @@ public class RestAgendaController {
 	public void anadir() {
 		servicio.anadir(new Contacto());
 	}
+
+	/**
+	 * Devuelve una lista de todos los contactos 
+	 * @return List de contactos
+	 */
+	@RequestMapping("/R")
+	public List<Contacto> listarR(){
+		return servicio.listar(Contacto.class);
+	}
+	
 	
 }

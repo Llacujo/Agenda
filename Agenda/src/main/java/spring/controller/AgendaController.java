@@ -51,7 +51,7 @@ public class AgendaController {
 	 */
 	@RequestMapping (value = "/anadir", method = RequestMethod.GET)
 	public ModelAndView anadir () {
-		ModelAndView model = new ModelAndView("Anadir"); 
+		ModelAndView model = new ModelAndView("anadir"); 
 		model.addObject("contacto", new Contacto());
 		return model;
 	}
