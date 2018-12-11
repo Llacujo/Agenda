@@ -64,5 +64,12 @@ public class RestAgendaController {
 		return servicio.listar(Contacto.class);
 	}
 	
+	/**
+	 * Borra un Contacto por su ID
+	 */
+	@RequestMapping(value="/borrarR", method=RequestMethod.DELETE)
+	public void borrar1(@RequestParam("id") int id) {
+		 servicio.borrar(id);
+	}
 	
 }
