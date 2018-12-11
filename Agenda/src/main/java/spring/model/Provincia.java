@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -47,6 +49,7 @@ public class Provincia implements Serializable{
 	 * Direcciones
 	 */
 	@OneToMany(mappedBy="provincia", cascade=CascadeType.ALL)
+	@JsonIgnore
 	private List<Direccion> direcciones;
 	
 	// --------------------
