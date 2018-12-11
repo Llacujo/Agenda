@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +14,7 @@
 <body>
     <div class="container">
 
-        <form id="contact" action="anadir" method="get">
+        <mvc:form id="contact" action="editar?id=${contacto.idContacto}" method="post">
             <h3>DETALLE</h3>
             <p><br></p>
             <fieldset>
@@ -55,7 +55,7 @@
                 <button name="editar" type="submit" id="contact-edit" data-submit="...Loading">EDITAR</button>
                 <a href="borrar?id=${contacto.idContacto}" id="contact-delete">ELIMINAR</a>
             </fieldset>
-        </form>
+        </mvc:form>
 
 
     </div>

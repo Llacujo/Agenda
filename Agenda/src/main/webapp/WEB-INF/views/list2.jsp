@@ -57,7 +57,7 @@
 					<td>${contacto.nombre}</td>
 					<td>${contacto.apellido1}</td>
 					<td>${contacto.apellido2}</td>
-					<td><a href="detalle?id=${contacto.idContacto}">EDITAR</a>
+					<td><a href="detalle?id=${contacto.idContacto}">Detallar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="borrar?id=${contacto.idContacto}">Eliminar</a>
 					</td>
 				</tr>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="webapp/META-INF/resources/css/anadir.css">
+   <link rel="stylesheet" type="text/css" href="/resources/css/anadir.css">
 
 <title>Editar</title>
 </head>
@@ -15,6 +15,9 @@
         <mvc:form modelAttribute="contacto" id="edit" action="/edition" method="post">
             <h3>EDITAR</h3>
             <p><br></p>
+            
+            <!-- Nombre -->
+            
             <fieldset>
                 <p class="titulo nombre"><mvc:label path="nombre">Nombre:</mvc:label></p>
             </fieldset>
@@ -23,6 +26,9 @@
                 <mvc:input path="nombre"  type="text"  
                 value="${contacto.nombre}" /></p>
             </fieldset>
+            
+            <!-- Apellido1 -->
+            
             <fieldset>
                 <p class="titulo nombre"><mvc:label path="apellido1">Apellido1:</mvc:label></p>
             </fieldset>
@@ -31,6 +37,9 @@
                 <mvc:input path="apellido1"  type="text"  
                 value="${contacto.apellido1}" /></p>
             </fieldset>
+            
+      		<!-- Apellido 2 -->
+      		
             <fieldset>
                 <p class="titulo nombre"><mvc:label path="apellido2">Apellido2:</mvc:label></p>
             </fieldset>
@@ -39,6 +48,8 @@
                 <mvc:input path="apellido2"  type="text"  
                 value="${contacto.apellido2}" /></p>
             </fieldset>
+            
+            <!-- DNI -->
             
             <fieldset>
                 <p class="titulo dni"><mvc:label path="dni">DNI:</mvc:label></p>
@@ -49,6 +60,8 @@
                 value="${contacto.dni}"/></p>
             </fieldset>
             
+            <!-- Fecha de Nacimineto -->
+            
             <fieldset>
                 <p class="titulo fecha"><mvc:label path="fechaNacimiento">Fecha de nacimiento:</mvc:label></p>
             </fieldset>
@@ -56,6 +69,8 @@
                 <p id="fecha" class="campo">
                 <mvc:input path="fechaNacimiento" type="date" value="${contacto.fechaNacimiento}" /></p>
             </fieldset>
+            
+            <!-- Telefonos -->
             
             <fieldset>
                 <p class="titulo telefonos"><mvc:label path="telefonos">Telefonos:</mvc:label></p>
@@ -66,6 +81,9 @@
                     <mvc:input path="telefonos" type="tel" value="${telefono.numero}" /></p>
                 </c:forEach>
             </fieldset>
+            
+            <!-- Direccion -->
+            
             <fieldset>
                 <p class="titulo direccioncompleta"><mvc:label path="direccion">Direccion:</mvc:label></p>
             </fieldset>
@@ -74,6 +92,9 @@
                 <mvc:input path="direccion" type="text"  value="${contacto.direccion.direccion}" /></p>
                
             </fieldset>
+            
+            <!--  Localidad -->
+            
              <fieldset>
                 <p class="titulo direccioncompleta"><mvc:label path="direccion.localidad">Localidad:</mvc:label></p>
             </fieldset>
@@ -81,6 +102,9 @@
             <p class="campo direccion">
                 <mvc:input path="direccion.localidad" type="text"  value="${contacto.direccion.localidad}" /></p>
             </fieldset>
+            
+            <!-- Provicncia -->
+            
             <fieldset>
                 <p class="titulo direccioncompleta"><mvc:label path="direccion.provincia.provincia">Provincia:</mvc:label></p>
             </fieldset>
@@ -88,6 +112,9 @@
             <p class="campo direccion">
                 <mvc:input path="direccion.provincia.provincia" type="text"  value="${contacto.direccion.provincia.provincia}" /></p>
             </fieldset>
+            
+       		<!-- Codigo Postal -->
+       		
             <fieldset>
                 <p class="titulo direccioncompleta"><mvc:label path="direccion.codpostal">Codigo Postal:</mvc:label></p>
             </fieldset>
@@ -95,6 +122,8 @@
             <p class="campo direccion">
                 <mvc:input path="direccion.codpostal" type="text"  value="${contacto.direccion.codpostal}" /></p>
             </fieldset>
+            
+            <!-- Boton Submit -->
             <fieldset>
                 <button name="add" type="submit" id="contact-add" data-submit="...Adding">AÑADIR</button>
             </fieldset>

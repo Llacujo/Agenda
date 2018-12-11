@@ -73,9 +73,9 @@ public class AgendaController {
 	 * @param model
 	 * @return String
 	 */
-	@RequestMapping(value="/editar" ,method=RequestMethod.GET)
+	@RequestMapping(value="/editar" )
 	public String editar(@RequestParam("id") int id,ModelMap model) {
-		model.addAttribute("contacto", servicio.detallar(Contacto.class,id));
+		model.addAttribute("contacto", servicio.detallar(Contacto.class, id));
 		
 		return "anadir";
 	}
