@@ -15,7 +15,7 @@
         <mvc:form modelAttribute="contacto" id="edit" action="/edition" method="post">
             <h3>EDITAR</h3>
             <p><br></p>
-            
+             <mvc:hidden path="idContacto" />
             <!-- Nombre -->
             
             <fieldset>
@@ -75,13 +75,17 @@
             <fieldset>
                 <p class="titulo telefonos"><mvc:label path="telefonos">Telefonos:</mvc:label></p>
             </fieldset>
-            <fieldset>
-                <c:forEach var="telefono" items="${contacto.telefonos}" varStatus="status">
-                    <p class="campo telefono">
-                    <mvc:input path="telefonos" type="tel" value="${telefono.numero}" /></p>
-                </c:forEach>
-            </fieldset>
             
+                <c:forEach var="telefono" items="${contacto.telefonos}" varStatus="status">
+                   <fieldset>
+                    <p class="campo telefono">
+                    <mvc:input path="telefonos[${status.index}].numero" type="tel" value="${telefono.numero}" /></p>
+                    <mvc:hidden path="telefonos[${status.index}].idTelefono" value="${telefono.idTelefono}" />
+                    <mvc:hidden path="telefonos[${status.index}].contacto.idContacto" value="${telefono.contacto.idContacto}" />
+                    </fieldset>
+                    
+                </c:forEach>
+          
             <!-- Direccion -->
             
             <fieldset>

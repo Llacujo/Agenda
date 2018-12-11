@@ -48,7 +48,7 @@ public class Telefono implements Serializable{
 	@Column(name = "telefono")
 	long numero;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idpersona")
 	private Contacto contacto;
 	// --------------------
@@ -99,6 +99,14 @@ public class Telefono implements Serializable{
 		this.numero = numero;
 	}
 
+
+	public Contacto getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
 
 	// --------------------
 	// To String
