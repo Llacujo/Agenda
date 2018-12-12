@@ -11,6 +11,7 @@ import { ListarComponent } from './componentes/listar/listar.component';
 import { DetallarComponent } from './componentes/detallar/detallar.component';
 import { AnadirComponent } from './componentes/anadir/anadir.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {ContactotService} from './REST/rest';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes), 
+    RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
   ],
   exports:[
     HttpClientModule
   ],
-  providers: [],
+  providers: [ContactotService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
