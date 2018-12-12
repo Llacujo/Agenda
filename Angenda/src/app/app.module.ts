@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ListarComponent } from './componentes/listar/listar.component';
 import { DetallarComponent } from './componentes/detallar/detallar.component';
 import { AnadirComponent } from './componentes/anadir/anadir.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AnadirComponent } from './componentes/anadir/anadir.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes), 
+    ReactiveFormsModule,
   ],
   exports:[
     HttpClientModule
