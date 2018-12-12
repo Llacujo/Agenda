@@ -1,0 +1,130 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+/**     SECCIÓN CABECERA      **/
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+/**     SECCIÓN CABECERA      **/
+.cabecera{
+    background-color: beige;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+.cabecera h3 {
+ font-family: 'Raleway', sans-serif;
+ /*font-size: 35px;
+  color:#fff;  
+  letter-spacing: 0rem;*/
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 3rem;
+  padding-top: 3rem #16a1b7;
+  letter-spacing: 0.rem;
+  color: #fff;
+  text-decoration: double;
+  padding-top: 2rem;
+
+}
+
+.cabecera a {
+  color: #fff;
+  font-size: 25px;
+  padding-right: 2rem;
+
+}
+
+.cabecera a:focus, a:hover {
+  color: #98cbcb;
+}
+
+.cabecera a:active {
+  color: #fff;
+}
+
+
+/**     SECCIÓN TABLA      **/
+
+.tabla-seccion th{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color:#222222;  
+  letter-spacing: 0rem;
+}
+
+.tabla-seccion tr{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color:#222222;  
+  letter-spacing: 0rem;
+}
+
+
+.tabla-seccion:hover{
+  background-color: #98cbcb;
+}
+
+.tabla-seccion:focus {
+  background-color: #6db6b6;
+}
+
+.tabla-seccion:active {
+  background-color: #4f9d9d !important;
+}
+	
+
+/**    ENLACES   **/
+a {
+  color: #fff;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: #98cbcb;
+}
+
+
+/*NO APLICADO*/
+/*BOTÓN */
+.btn {
+  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: 'Open Sans';
+  font-size: 70%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn-primary {
+ font-family: 'Oswald', sans-serif;
+ font-size: 80%;
+  background-color: #f05f40;
+}
+
+.btn-primary:hover {
+  background-color: #f05f40;
+}
+
+.btn-primary:focus {
+  background-color: #a32e15;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: #a32e15 !important;
+}
+
+
