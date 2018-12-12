@@ -93,7 +93,7 @@ public class AgendaController {
 	public String edit(@ModelAttribute("contacto") Contacto contacto) {
 		
 		servicio.editarContacto(contacto);
-		return "redirect:/";
+		return "list";
 	}
 	
 	/**
