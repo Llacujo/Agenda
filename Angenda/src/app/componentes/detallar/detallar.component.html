@@ -1,3 +1,56 @@
-<p>
-  detallar works!
-</p>
+<body>
+<div class="container">
+
+    <div id ="contact">
+    <form action="anadir/{{contacto.idContacto}}"  >
+        <h3>DETALLE</h3>
+        <p><br></p>
+        <fieldset>
+            <p class="titulo nombre" >Nombre:</p>
+        </fieldset>
+        <fieldset>
+            <p id="nombre" class="campo" >{{contacto.nombre}}, {{contacto.apellido1}}, {{contacto.apellido2}} </p>
+        </fieldset>
+       <fieldset>
+            <p class="titulo dni">DNI:</p>
+        </fieldset>
+        <fieldset>
+            <p id="dni" class="campo">{{contacto.dni}}</p>
+        </fieldset>
+        <fieldset>
+            <p class="titulo fecha">Fecha de nacimiento</p>
+        </fieldset>
+        <fieldset>
+            <p id="fecha" class="campo">{{contacto.fechaNacimiento}}</p>
+        </fieldset>
+        <fieldset>
+            <p class="titulo telefonos">Telefonos:</p>
+        </fieldset>
+        <fieldset>
+               
+          
+                <p *ngFor="let telefono of contacto.telefonos" class="campo telefono">{{ telefono.numero }}</p>
+           
+        </fieldset>
+         <fieldset>
+            <p class="titulo direccioncompleta">Direccion:</p>
+        </fieldset>
+        <fieldset>
+
+            <p class="campo direccion">{{contacto.direccion.direccion}}</p>
+            <p class="campo direccion">{{contacto.direccion.localidad}}, {{contacto.direccion.provincia.provincia}}, {{contacto.direccion.codpostal}}</p>
+        </fieldset>
+       <fieldset>
+        <button type="submit" >EDITAR</button>
+        </fieldset>
+
+    </form>
+
+   
+    <fieldset>
+    <button  class="borrar" (click)="borrar(contacto)">ELIMINAR</button>
+    </fieldset>
+   </div>
+
+</div>
+</body>
