@@ -93,7 +93,7 @@ public class AgendaController {
 	public String edit(@ModelAttribute("contacto") Contacto contacto) {
 		
 		servicio.editarContacto(contacto);
-		return "list";
+		return "redirect:/list";
 	}
 	
 	/**
@@ -105,7 +105,7 @@ public class AgendaController {
 	public ModelAndView deleteUser(@RequestParam("id") int id) {
 		
 		servicio.borrar(id);
-		return new ModelAndView("redirect:/");		
+		return new ModelAndView("redirect:/list");		
 	}
 	
 	
