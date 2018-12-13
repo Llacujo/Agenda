@@ -29,7 +29,6 @@ body {
 	max-width:400px;
 	width:300%;
 	margin:0 auto;
-
 	height:800px;
 	position:relative;
 	 
@@ -62,6 +61,15 @@ body {
 	padding:25px;
 	margin:50px 0;
 	height:700px;
+}
+
+#zonacontactos {
+	background:#F9F9F9;
+	padding:25px;
+	margin:50px 0;
+	height:550px;
+	overflow-y: scroll;
+
 }
 
 #contact h3 {
@@ -146,4 +154,23 @@ fieldset {
 }
 :-ms-input-placeholder {
  color:#888;
+}
+
+
+
+
+
+#td {
+	cursor:pointer;
+    border:none;
+    display:block;
+    text-align: center;;
+    width:100%;
+	background:#FF1A1A;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+	text-decoration:none; 
+	align-self: center;
 }
