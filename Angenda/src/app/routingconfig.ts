@@ -8,10 +8,10 @@ export const appRoutes: Routes=
     {path:'',
     component: ListarComponent},
 
-    {path:'detalle',
+    {path:'detalle/:id',
     component: DetallarComponent},
   
-    {path:'anadir',
+    {path:'anadir/:id',
     component: AnadirComponent},
  
 ]
