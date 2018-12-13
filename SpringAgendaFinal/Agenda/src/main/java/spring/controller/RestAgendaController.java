@@ -20,7 +20,7 @@ import spring.model.Provincia;
 import spring.services.IServices;
 
 @RestController
-@CrossOrigin(origins= *)
+@CrossOrigin(origins="*")
 public class RestAgendaController {
 	@Autowired
 	IServices servicio;
