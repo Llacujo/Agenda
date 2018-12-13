@@ -1,18 +1,18 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'; //Servicios que voy a utilizar
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'; 
 import { ContactotService } from '../../REST/rest';
 import { Contacto } from '../../model/contacto';
 
 @Component({
-  selector: 'app-listar', //para embeberlo
+  selector: 'app-listar', 
   encapsulation: ViewEncapsulation.None,
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css'],
-  providers: [ContactotService]  //Aquí meter providers: referencias a las clases del rest
+  providers: [ContactotService]  
 })
 
 export class ListarComponent implements OnInit {
 
-  contactos: Contacto[];   //como el "beers": explicación de clase
+  contactos: Contacto[]; 
 
   constructor(private contactotservice: ContactotService) {
 

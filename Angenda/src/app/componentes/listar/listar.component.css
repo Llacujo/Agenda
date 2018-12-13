@@ -65,9 +65,10 @@ body {
 
 #zonacontactos {
 	background:#F9F9F9;
+	border: none;
 	padding:25px;
-	margin:50px 0;
-	height:550px;
+	margin:none;
+	height:500px;
 	overflow-y: scroll;
 
 }
@@ -79,6 +80,7 @@ body {
 	font-weight: 400;
 	text-align: center;
 }
+
 
 
 fieldset {
@@ -101,7 +103,7 @@ fieldset {
 	cursor:pointer;
     border:none;
     display:block;
-    text-align: center;;
+    text-align: center;
     width:100%;
 	background:#FF1A1A;
 	color:#FFF;
@@ -143,6 +145,22 @@ fieldset {
 	outline:0;
 	border:1px solid #999;
 }
+
+
+#contact input {
+	text-align: center;
+	align-self: center;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0em;
+	border: 0.15em solid #808080;
+	border-radius: 0.5em;
+
+}
+
+
+
+
 ::-webkit-input-placeholder {
  color:#888;
 }
@@ -174,3 +192,6 @@ fieldset {
 	text-decoration:none; 
 	align-self: center;
 }
+
+
+

@@ -12,6 +12,7 @@ import { DetallarComponent } from './componentes/detallar/detallar.component';
 import { AnadirComponent } from './componentes/anadir/anadir.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ContactotService} from './REST/rest';
+import { FilterPipe } from './componentes/listar/filter.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {ContactotService} from './REST/rest';
     AppComponent,
     ListarComponent,
     DetallarComponent,
-    AnadirComponent
+    AnadirComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

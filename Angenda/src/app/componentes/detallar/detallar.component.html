@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<!--<link rel="stylesheet" type="text/css" href="./listar.component.css">-->
+
+<title>Agenda Lucatic</title>
+</head>
 <body>
 <div class="container">
 
     <div id ="contact">
-    <form action="anadir/{{contacto.idContacto}}"  >
+    <form #f action="anadir/{{contacto.idContacto}}"  >
         <h3>DETALLE</h3>
         <p><br></p>
         <fieldset>
@@ -41,7 +50,7 @@
             <p class="campo direccion">{{contacto.direccion.localidad}}, {{contacto.direccion.provincia.provincia}}, {{contacto.direccion.codpostal}}</p>
         </fieldset>
        <fieldset>
-        <button type="submit" >EDITAR</button>
+        <button type="submit" (click)="f.submit()" >EDITAR</button>
         </fieldset>
 
     </form>
@@ -54,3 +63,4 @@
 
 </div>
 </body>
+</html>

@@ -64,7 +64,7 @@ public class RestAgendaController {
 		 servicio.borrar(id);
 	}
 	
-	@RequestMapping(value = "/provinciaR")
+	@RequestMapping(value = "/provinciasR")
 	public List<Provincia> listarProvincia(){
 		return servicio.listar(Provincia.class);
 	}
