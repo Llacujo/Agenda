@@ -57,7 +57,7 @@ public class Direccion implements Serializable{
 	@JoinColumn(name="idprovincia")
 	private Provincia provincia;
 	
-	@OneToMany(mappedBy="direccion",fetch=FetchType.EAGER, orphanRemoval=true)
+	@OneToMany(mappedBy="direccion",fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Set<Contacto> contactos;
 	
@@ -164,7 +164,7 @@ public class Direccion implements Serializable{
 	@Override
 	public String toString() {
 		return "Direccion [idDireccion=" + idDireccion + ", direccion=" + direccion + ", provincia="
-				+ provincia + "]";
+				+ provincia + "localidad=" + localidad+"]";
 	}
 
 
