@@ -50,10 +50,10 @@ public class Contacto implements Serializable {
 	@Column(name="fechanacimiento")
 	private Date fechaNacimiento;
 
-	@OneToMany(mappedBy="contacto",fetch=FetchType.LAZY, orphanRemoval=true)
+	@OneToMany(mappedBy="contacto",cascade=CascadeType.REMOVE,fetch=FetchType.LAZY, orphanRemoval=true)
 	
 	private List<Telefono> telefonos;
-	@ManyToOne(optional=false,cascade=CascadeType.MERGE)
+	@ManyToOne(optional=false,cascade= {CascadeType.MERGE,CascadeType.REMOVE})
 	@JoinColumn(name="iddireccion")
 	private Direccion direccion;
 	public Contacto() {
