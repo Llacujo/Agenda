@@ -1,6 +1,39 @@
-<p>
-  listar works!
-</p>
 
 
-<a routerLink="detalle">DETALLAR</a>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<!--<link rel="stylesheet" type="text/css" href="./listar.component.css">-->
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<title>Agenda Lucatic</title>
+</head>
+
+<body>
+	<div class="container">
+
+<div id="contact">
+		<h3>CONTACTOS</h3>
+		
+		<div id="anadir" >
+		<a id="icono" href="anadir"><i class="fas fa-user-plus fa-3x mb-3"></i></a>
+		</div>
+		<tr *ngFor ="let contacto of contactos">			
+			<fieldset>
+				<a href="detalle?id={{contacto.idContacto}}" 
+
+class="contacto">{{contacto.nombre}} {{contacto.apellido1}} {{contacto.apellido2}}
+
+</a>
+			</fieldset>
+		</tr>
+
+</div>
+	</div>
+</body>
+
+</html>
