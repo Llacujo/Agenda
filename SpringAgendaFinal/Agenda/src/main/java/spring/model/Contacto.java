@@ -53,7 +53,7 @@ public class Contacto implements Serializable {
 	@OneToMany(mappedBy="contacto",cascade=CascadeType.REMOVE,fetch=FetchType.LAZY, orphanRemoval=true)
 	
 	private List<Telefono> telefonos;
-	@ManyToOne(optional=false,cascade= {CascadeType.MERGE,CascadeType.REMOVE})
+	@ManyToOne(optional=false,cascade= CascadeType.MERGE)
 	@JoinColumn(name="iddireccion")
 	private Direccion direccion;
 	public Contacto() {

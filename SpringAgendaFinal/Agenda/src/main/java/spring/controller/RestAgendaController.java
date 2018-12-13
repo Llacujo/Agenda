@@ -60,6 +60,7 @@ public class RestAgendaController {
 	 */
 	@RequestMapping(value="/borrarR", method=RequestMethod.DELETE)
 	public void borrar1(@RequestParam("id") int id) {
+		servicio.setClazz(Contacto.class);
 		 servicio.borrar(id);
 	}
 	
