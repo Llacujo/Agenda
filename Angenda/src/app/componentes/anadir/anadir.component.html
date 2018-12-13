@@ -1,3 +1,114 @@
-<p>
-  anadir works!
-</p>
+<head>
+  <title>Añadir</title>
+</head>
+<body>
+  <div class="container">
+
+    <form id="edit" >
+
+      <h3>EDITAR</h3>
+      <p><br></p>
+
+      <!-- Nombre-->
+
+      <div>
+        <p class="titulo">Nombre</p>
+        <p id="nombre" class="campo">
+          <input name="nombre" id="nombre" [(ngModel)]="contacto.nombre" type="text"/></p>
+      </div>
+      
+
+      <!--Apellido1-->
+      <div>
+        <p class="titulo">Apellido 1</p>
+        <p id="nombre" class="campo">
+          <input name="apellido1" [(ngModel)]="contacto.apellido1" type="text"/>
+        </p>
+      </div>
+      
+
+      <!--Apellido2-->
+      <div>
+        <p class="titulo">Apellido 2</p>
+        <p id="nombre" class="campo">
+          <input name="apellido2" [(ngModel)]="contacto.apellido2" type="text"/>
+        </p>
+      </div>
+     
+
+      <!--DNI-->
+      <div>
+        <p class="titulo">DNI</p>
+        <p id="dni" class="campo">
+          <input name="dni" [(ngModel)]="contacto.dni"  type="text"/>
+        </p>
+      </div>
+      
+
+      <!--Fecha de Nacimiento-->
+      <div>
+        <p class="titulo">Fecha de Nacimiento</p>
+        <p id="fechaNacimiento" class="campo">
+          <input name="fechaNacimineto" [(ngModel)]="contacto.fechaNacimiento" type="date"/>
+        </p>
+      </div>
+      
+
+      <!--Telefonos-->
+      <div>
+        <p class="titulo">Telefonos</p>
+        <p id="telefonos" class="campo">
+          <input name="telefonos" [(ngModel)]="contacto.telefonos" type="tel"/>
+        </p>
+      </div>
+      
+
+      <!--Direccion-->
+      <div>
+        <p class="titulo">Direccion</p>
+        <p id="direccion" class="campo">
+          <input name="direccion" [(ngModel)]="contacto.direccion" type="text"/>
+
+        </p>
+      </div>
+      
+
+      <!--Localidad-->
+      <div>
+        <p class="titulo">Localidad</p>
+        <p id="localidad" class="campo">
+          <input name="localidad" [(ngModel)]="contacto.localidad" type="text"/>
+        </p>
+      </div>
+      
+
+      <!--Provincia-->
+      <div>
+        <p class="titulo">Provincia</p>
+        <p id="provincia" class="campo">
+          <input name="provincia" [(ngModel)]="contacto.provincia" type="text"/>
+        </p>
+      </div>
+      
+
+      <!--Codigo Postal-->
+      <div>
+        <p class="titulo">Codigo Postal</p>
+        <p id="codiopostal" class="campo">
+          <input name="codigopostal" [(ngModel)]="contacto.codigopostal" type="number"/>
+        </p>
+      </div>
+      
+
+      <!--Submit-->
+      <div>
+        <button name="add" type="submit" id="add"
+        class="btn btn-success" (click)="createContacto()">
+        Añadir
+      </button>
+      </div>
+    </form>
+    <br />
+    
+  </div>
+</body>

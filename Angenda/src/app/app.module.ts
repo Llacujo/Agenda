@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -12,6 +12,7 @@ import { DetallarComponent } from './componentes/detallar/detallar.component';
 import { AnadirComponent } from './componentes/anadir/anadir.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ContactotService} from './REST/rest';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +27,12 @@ import {ContactotService} from './REST/rest';
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
+    
+    FormsModule,
   ],
   exports:[
-    HttpClientModule
+    HttpClientModule, 
+  
   ],
   providers: [ContactotService],
   bootstrap: [AppComponent]
