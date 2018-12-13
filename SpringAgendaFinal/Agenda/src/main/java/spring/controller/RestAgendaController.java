@@ -20,11 +20,10 @@ import spring.model.Provincia;
 import spring.services.IServices;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins= "*")
 public class RestAgendaController {
 	@Autowired
 	IServices servicio;
-	
 	/**
      * Devuelve un contacto mediante un id a traves de la capa services
      * @param id: id de usuario
@@ -34,6 +33,7 @@ public class RestAgendaController {
 	public Contacto detallar(@RequestParam("id") int id) {
 		return	 (Contacto) servicio.detallar(Contacto.class, id);
 	}
+	
 	/**
 	 * Crea un nuevo contacto
 	 * @param Contacto.class
@@ -41,9 +41,8 @@ public class RestAgendaController {
 	 */
 	@PostMapping("/anadirR")
 	public void  anadir(@RequestBody Contacto contacto){
+		System.out.println(contacto.toString());
 		this.servicio.editarContacto(contacto);
-
-		
 	}
 
 	/**
@@ -60,7 +59,6 @@ public class RestAgendaController {
 	 */
 	@RequestMapping(value="/borrarR", method=RequestMethod.DELETE)
 	public void borrar1(@RequestParam("id") int id) {
-		servicio.setClazz(Contacto.class);
 		 servicio.borrar(id);
 	}
 	
