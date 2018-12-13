@@ -21,8 +21,7 @@ export class ListarComponent implements OnInit {
   ngOnInit() {
 
     this.contactotservice.listar().subscribe(data => this.success(data), err => this.failed(err)) ;
-  } 
-    
+  }     
     
     
     success(data){
