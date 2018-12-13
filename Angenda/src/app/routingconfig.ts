@@ -13,5 +13,7 @@ export const appRoutes: Routes=
   
     {path:'anadir/:id',
     component: AnadirComponent},
+    {path:'anadir',
+    component: AnadirComponent},
  
 ]

@@ -3,7 +3,7 @@ import{Contacto} from 'src/app/model/contacto';
 import{Direccion} from 'src/app/model/direccion';
 import{Telefono} from 'src/app/model/telefono';
 import{Provincia} from 'src/app/model/provincia';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {ContactotService} from 'src/app/REST/rest';
 
 @Component({
@@ -19,7 +19,8 @@ export class AnadirComponent implements OnInit {
   telefonos: Telefono[]= [new Telefono()];
   provincia: Provincia= new Provincia();
   idContacto;
-  constructor( private rest:ContactotService, private route: ActivatedRoute){
+  provincias;
+  constructor( private rest:ContactotService, private route: ActivatedRoute, private ruta: Router){
 
   }
 
@@ -33,8 +34,8 @@ createContacto():void{
   this.contacto.telefonos=this.telefonos;
   this.rest.anadir(this.contacto)
   .subscribe(data=>{
-    alert("Se ha añadido el contacto");
   });
+  this.ruta.navigate([""]);
 };
 
   ngOnInit(){
@@ -50,6 +51,9 @@ createContacto():void{
       this.provincia=this.direccion.provincia;
     })
 
+    this.rest.listarProvincias().subscribe(data=>{
+      this.provincias=data;
+    })
 
     
   }
