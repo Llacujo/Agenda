@@ -45,7 +45,7 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 */
 	public List<T> listar() {
 		logger.warn("dao listar");
-		
+
 		return entityManager.createQuery("from " + clazz.getName()).getResultList();
 	}
 
@@ -55,20 +55,21 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 * @param entity
 	 */
 	public void anadir(T entity) {
+		logger.warn("dao anadir");
 		entityManager.persist(entity);
 	}
-	
-	
+
 	/**
 	 * Obtiene una entidad mediante su id
 	 * 
-	 * @param  Id en formato int
+	 * @param Id en formato int
 	 * @return Objeto entidad
 	 */
-	public T detallar( int id ){
-	      return entityManager.find( clazz, id );
-	   }
-	
+	public T detallar(int id) {
+		logger.warn("dao detallar");
+		return entityManager.find(clazz, id);
+	}
+
 	/**
 	 * Actualiza la base de datos con los datos introducidos
 	 * 
@@ -77,27 +78,29 @@ public abstract class DAOAbstract<T extends Serializable> {
 	 */
 	@Transactional
 	public void editar(T entity) {
-		
+		logger.warn("dao editar");
 		entityManager.merge(entity);
 	}
-	
+
 	/**
 	 * Crea una Entidad a partir de su id y la envia al metodo Borrar
 	 * 
 	 * @param entity
 	 */
 	@Transactional
-	 public void borrar( int id ){
-	      T entity = detallar( id );
-	      borrar( entity );
-	   }
-	
+	public void borrar(int id) {
+		T entity = detallar(id);
+		borrar(entity);
+	}
+
 	/**
 	 * Borra una Entidad a partir de su id y la envia al metodo Borrar
+	 * 
 	 * @param entity
 	 */
 	@Transactional
-	 public void borrar( T entity ){
-	      entityManager.remove( entity );
-	   }
+	public void borrar(T entity) {
+		logger.warn("dao borrar");
+		entityManager.remove(entity);
+	}
 }

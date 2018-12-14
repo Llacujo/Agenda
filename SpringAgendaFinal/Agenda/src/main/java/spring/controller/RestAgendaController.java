@@ -20,51 +20,54 @@ import spring.model.Provincia;
 import spring.services.IServices;
 
 @RestController
-@CrossOrigin(origins= "*")
+@CrossOrigin(origins = "*")
 public class RestAgendaController {
 	@Autowired
 	IServices servicio;
+
 	/**
-     * Devuelve un contacto mediante un id a traves de la capa services
-     * @param id: id de usuario
-     * @return Contacto: devuelve un contacto
-     */
-	@RequestMapping(value="/detalleR", method=RequestMethod.GET)
+	 * Devuelve un contacto mediante un id a traves de la capa services
+	 * 
+	 * @param id: id de usuario
+	 * @return Contacto: devuelve un contacto
+	 */
+	@RequestMapping(value = "/detalleR", method = RequestMethod.GET)
 	public Contacto detallar(@RequestParam("id") int id) {
-		return	 (Contacto) servicio.detallar(Contacto.class, id);
+		return (Contacto) servicio.detallar(Contacto.class, id);
 	}
-	
+
 	/**
 	 * Crea un nuevo contacto
+	 * 
 	 * @param Contacto.class
 	 * @return ResponseEntity
 	 */
 	@PostMapping("/anadirR")
-	public void  anadir(@RequestBody Contacto contacto){
-		System.out.println(contacto.toString());
+	public void anadir(@RequestBody Contacto contacto) {
 		this.servicio.editarContacto(contacto);
 	}
 
 	/**
-	 * Devuelve una lista de todos los contactos 
+	 * Devuelve una lista de todos los contactos
+	 * 
 	 * @return List de contactos
 	 */
 	@RequestMapping(value = "/R")
-	public List<Contacto> listarR(){
+	public List<Contacto> listarR() {
 		return servicio.listar(Contacto.class);
 	}
-	
+
 	/**
 	 * Borra un Contacto por su ID
 	 */
-	@RequestMapping(value="/borrarR", method=RequestMethod.DELETE)
+	@RequestMapping(value = "/borrarR", method = RequestMethod.DELETE)
 	public void borrar1(@RequestParam("id") int id) {
-		 servicio.borrar(id);
+		servicio.borrar(id);
 	}
-	
+
 	@RequestMapping(value = "/provinciasR")
-	public List<Provincia> listarProvincia(){
+	public List<Provincia> listarProvincia() {
 		return servicio.listar(Provincia.class);
 	}
-	
+
 }

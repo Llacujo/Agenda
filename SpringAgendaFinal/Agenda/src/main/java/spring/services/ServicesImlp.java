@@ -11,6 +11,7 @@ import spring.model.Telefono;
  * Clase ServicesImpl
  * 
  * Implementacion de la clase IServices
+ * 
  * @author GrupoA
  * @version 1.0
  */
@@ -18,8 +19,8 @@ import spring.model.Telefono;
 public class ServicesImlp<T extends Serializable> extends ServicesAbstract<T> implements IServices<T> {
 
 	public void editarContacto(Contacto contacto) {
-		Contacto merge= dao.mergeId(contacto);
-		for(Telefono tel:contacto.getTelefonos()) {
+		Contacto merge = dao.mergeId(contacto);
+		for (Telefono tel : contacto.getTelefonos()) {
 			tel.setContacto(merge);
 			editar((T) tel);
 		}
